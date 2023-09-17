@@ -26,7 +26,7 @@ export class CustomersService {
 
 
   async findOne(id: number): Promise<Customer> {
-    const cust = this.custRepo.findOne({where:{id}});
+    const cust = await this.custRepo.findOne({where:{id}});
     if(!cust) throw new HttpException("Customer Not Found", HttpStatus.NOT_FOUND);
     return cust;
   }
